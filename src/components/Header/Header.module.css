@@ -4,7 +4,46 @@
   color: white;
   padding: 0 10px;
 }
-
+.order_cotainer a {
+  text-decoration: none;
+  color: white;
+}
+/* .fixed {
+  position: fixed;
+  top: 0;
+  z-index: 100px;
+} */
+.order_cotainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 450px;
+  gap: 10px;
+}
+.language {
+  width: 100px;
+  display: flex;
+  pad: 10px;
+}
+.language select {
+  background-color: #1a1a1a;
+  border: none;
+  color: white;
+}
+.order_cotainer a:hover {
+  border: 1px solid white;
+  border-radius: 3px;
+}
+.language a:hover {
+  border: 1px solid white;
+  border-radius: 3px;
+}
+.language img {
+  width: 40%;
+}
+.order_cotainer option {
+  font-size: 10px;
+}
 .headerTopContainer {
   display: flex;
   align-items: center;
