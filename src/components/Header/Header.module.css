@@ -105,7 +105,7 @@
 
 /* Search Bar */
 .headerSearch {
-  flex: 1;
+  /* flex: 1; */
   max-width: 800px;
   margin: 0 20px;
   display: flex;
@@ -124,7 +124,7 @@
 }
 
 .searchInput {
-  flex: 1;
+  /* flex: 1; */
   padding: 10px;
   border: none;
   font-size: 16px;

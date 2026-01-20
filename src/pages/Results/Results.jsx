@@ -20,7 +20,7 @@ function Results() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [categoryName]);
 
   return (
     <LayOut>

@@ -19,7 +19,7 @@ function Product() {
       })
       .catch((err) => {
         console.log(err);
-        isloading(false);
+        setLoading(false);
       });
   }, []);
   return (

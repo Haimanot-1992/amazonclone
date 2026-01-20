@@ -10,9 +10,9 @@ import {
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import { DataContext } from "../DataProvider/DataProvider";
-
+import { auth } from "../../Utility/firebase";
 const Header = () => {
-  const [{ basket }, dispatch] = useContext(DataContext);
+  const [{ user, basket }, dispatch] = useContext(DataContext);
   console.log(basket.length);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -94,17 +94,34 @@ const Header = () => {
                   </select>
                 </Link>
               </div>
-              <Link to="/signup">
-                <div className={styles.headerAccount}>
-                  <span className={styles.accountLine1}>Signin</span>
-                  <span className={styles.accountLine2}>
-                    Account & Lists <ChevronDown size={12} />
-                  </span>
+              <Link to={!user && "/auth"}>
+                <div>
+                  {user ? (
+                    <>
+                      <p>Hello {user?.email?.split("@")[0]}</p>
+                      <span onClick={() => auth.signOut()}>Sign Out</span>
+                    </>
+                  ) : (
+                    <div
+                      className={styles.headerAccount}
+                      style={{ listStyle: "none !important" }}
+                    >
+                      <span className={styles.accountLine1}>
+                        Hello, sign in <ChevronDown size={12} />
+                      </span>
+                      <span className={styles.accountLine}>
+                        Account & Lists
+                      </span>
+                    </div>
+                  )}
                 </div>
               </Link>
 
               <Link to="/order">
-                <div className={styles.headerOrders}>
+                <div
+                  className={styles.headerOrders}
+                  style={{ listStyle: "none !important" }}
+                >
                   <span className={styles.ordersLine1}>Returns</span>
                   <span className={styles.ordersLine2}>& Orders</span>
                 </div>
@@ -163,18 +180,11 @@ const Header = () => {
         {isMenuOpen && (
           <div className={styles.mobileMenu}>
             <div className={styles.mobileMenuContent}>
-              <div className={styles.mobileAccount}>
-                <span className={styles.mobileAccountTitle}>
-                  Hello, sign in
-                </span>
-                <span className={styles.mobileAccountSubtitle}>
-                  Account & Lists
-                </span>
-              </div>
+              <div className={styles.mobileAccount}></div>
               <div className={styles.mobileCategories}>
                 <h3>Shop by Department</h3>
                 {categories.map((cat) => (
-                  <Link key={cat} to="/" className={styles.mobileCategory}>
+                  <Link key={cat} to="/auth" className={styles.mobileCategory}>
                     {cat}
                   </Link>
                 ))}
