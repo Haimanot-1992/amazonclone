@@ -1,6 +1,6 @@
 {
-  "name": "famazoncone",
-  "index": "https://{Haimanot-1992}.github.io/{famazoncone}",
+  "name": "amazon-clone",
+  "index": "https://{Haimanot-1992}.github.io/{amazon-clone}",
   "deploy": "gh-pages -d build",
   "predeploy": "npm run build",
   "version": "0.1.0",
