@@ -1,5 +1,5 @@
 {
-  "name": "amazon-clone",
+  "name": "amazonclone",
   "index": "https://{Haimanot-1992}.github.io/{amazon-clone}",
   "deploy": "gh-pages -d build",
   "predeploy": "npm run build",
